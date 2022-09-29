@@ -153,7 +153,7 @@ EMAIL_USE_TLS = True # y se deja en true
 
 #Despliegue
 STATIC_URL ='static/'
-STATICFILES_DIRS = (
+STATIC_DIRS = (
     os.path.join(BASE_DIR,'static'),
 )
 
