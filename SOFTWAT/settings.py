@@ -130,7 +130,6 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
 
-
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
@@ -151,15 +150,19 @@ EMAIL_USE_TLS = True # y se deja en true
 # https://myaccount.google.com/security 
 #para generar contraseñas
 
-#Despliegue
-STATIC_URL ='static/'
+STATIC_URL = 'static/'
 STATIC_DIRS = (
-    os.path.join(BASE_DIR,'static'),
+    os.path.join(BASE_DIR, 'static'),
 )
 
 
-MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+MEDIA_URL = "media/"
+MEDIAFILES_DIRS = (
+    
+    os.path.join(BASE_DIR,"media/"),
+
+)
 
 
 STATIC_TMP = os.path.join(BASE_DIR,'static')
