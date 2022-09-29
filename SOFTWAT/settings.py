@@ -154,12 +154,12 @@ EMAIL_USE_TLS = True # y se deja en true
 #Despliegue
 STATIC_URL ='static/'
 STATIC_DIRS = (
-    os.path.join(BASE_DIR,'static'),
+    os.path.join(BASE_DIR,"static"),
 )
 
 
-STATIC_TMP = os.path.join(BASE_DIR,'static')
-STATIC_ROOT = os.path.join(BASE_DIR,'static')
+STATIC_TMP = os.path.join(BASE_DIR,"static")
+STATIC_ROOT = os.path.join(BASE_DIR,"static")
 os.makedirs(STATIC_ROOT, exist_ok=True)
 
 
