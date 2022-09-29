@@ -30,6 +30,7 @@ ALLOWED_HOSTS = ['*']
 CSRF_TRUSTED_ORIGINS = ["https://sofwat3.herokuapp.com"]
 
 
+
 # Application definition
 
 INSTALLED_APPS = [
@@ -151,7 +152,7 @@ EMAIL_USE_TLS = True # y se deja en true
 #para generar contraseñas
 
 STATIC_URL = 'static/'
-STATIC_DIRS = (
+STATICFILES = (
     os.path.join(BASE_DIR, 'static'),
 )
 
@@ -163,7 +164,6 @@ MEDIAFILES_DIRS = (
     os.path.join(BASE_DIR,"media/"),
 
 )
-
 
 STATIC_TMP = os.path.join(BASE_DIR,'static')
 STATIC_ROOT = os.path.join(BASE_DIR,'static')
