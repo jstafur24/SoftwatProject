@@ -162,6 +162,6 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 
-# STATIC_TMP = os.path.join(BASE_DIR,'static')
-# STATIC_ROOT = os.path.join(BASE_DIR,'static')
-# os.makedirs(STATIC_ROOT, exist_ok=True)
+STATIC_TMP = os.path.join(BASE_DIR,'static')
+STATIC_ROOT = os.path.join(BASE_DIR,'static')
+os.makedirs(STATIC_ROOT, exist_ok=True)
