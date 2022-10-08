@@ -1,8 +1,9 @@
 <link rel="stylesheet" href="/static/CSS/STYLES.bootstrap.min.css">
 <script src="https://kit.fontawesome.com/db536fcb88.js" crossorigin="anonymous"></script>
-<link rel="shorcurt icon" href="/static/IMG/logo FINAL.png">
+<link rel="shortcut icon" href="/static/IMG/logo FINAL.png">
 <link rel="stylesheet" href="/static/CSS/styleBootstrap.css">
 <link rel="stylesheet" href="/static/CSS/STYLES.bootstrap.min.css">
+<link rel="stylesheet" href="/static/CSS/STYLES.CSS">
 
     {% if cart.products.exists %} 
     <!-- TEMPLATE -->
@@ -10,7 +11,9 @@
     <div class="container-fluid color8 pt-5 pb-2">
           
     <!-- TITULO -->
-    <h1 class="titulo">COLOR IN</h1>  
+    <h1 class="titulo imgcart">
+            <img src="../../../static/IMG/LogoReal-removebg-preview.png" alt="">
+        COLOR IN</h1>  
           
     <!-- TITULO CARRITO -->
     <div class="row">
@@ -82,7 +85,7 @@
     </div>
           
     <!-- CUARTA FILA -->
-    <div class="row mb-3 justify-content-flex-start" >
+    <div class="row mb-3 justify-content-flex-start border" >
         <!-- Total -->
          <div class="col-md-1">
             <label for=""><strong>TOTAL:</strong></label>
@@ -102,7 +105,12 @@
              <a href="{% url 'index' %}" class="btn btn-dark d-sm-block">SALIR</a>
         </div>            
      </div>
-          
+
+
+          <!-- BOTON PARA ORDEN DE COMPRA-->
+     <div class="col d-grid gap-2 d-sm-grid">
+        <a href="{% url 'orders:order' %}" class="btn btn-success d-sm-block">SEGUIR CON EL PAGO 💸</a>
+    </div>
                
           
           

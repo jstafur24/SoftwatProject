@@ -1,4 +1,3 @@
-
 <!-- product -->
 <div class="container_flex">
   <div class="card h-100">
@@ -9,41 +8,8 @@
       <h5 class="card-title text-dark">{{ product.name }}</h5>
       <p>{{ product.price }}</p>
   <div class="container mt-5">
-            <!-- Button trigger modal -->
-  <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#exampleModal">
-    Ver Mas
-  </button>
+    <a href="{% url 'product' product.slug %}" class="btn btn-dark">Ver Mas</a>
 </div>
-  
-  <!-- Modal -->
-  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h2 class="modal-title text-dark" id="exampleModalLabel">{{ product.name }}</h2>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          <div class="col-3 ">
-            {% if product.image %}
-               <img src="{{ product.image.url }}" alt="Imagen Del Producto" width="200" height="200">
-            {% endif %}
-            </div>
-            <div class="col">
-            <div class="">
-                <p>{{ product.description }}</p>
-            </div>
-            <div class="h5 font-weight-bold">
-                Precio: <span class="text-dark">$ {{ product.price }}</span>
-            </div>
-            <div>
-              {% include 'carts/snippets/add.html' %}
-            </div>
-        </div>
-        </div>
-      </div>
-    </div>
-  </div>
-          </div>
-        </div>
-      </div>
+</div>
+</div>
+</div>

@@ -1,0 +1,24 @@
+<link rel="stylesheet" href="/static/CSS/STYLES.bootstrap.min.css">
+<script src="https://kit.fontawesome.com/db536fcb88.js" crossorigin="anonymous"></script>
+<link rel="shortcut icon" href="/static/IMG/logo FINAL.png">
+<link rel="stylesheet" href="/static/CSS/styleBootstrap.css">
+<link rel="stylesheet" href="/static/CSS/STYLES.bootstrap.min.css">
+<link rel="stylesheet" href="/static/CSS/STYLES.CSS">
+<div class="col-8">
+    <div class="h3">
+        Revisa tu pedido
+    </div>
+    <div class="card">
+        <div class="card-body">
+            {% for product in cart.products.all %}
+                {% include 'orders/snippets/product.html' %}
+            {% endfor %}
+        </div>
+    </div>
+</div>
+<div class="col">
+    {% url 'orders:address' as next_url %}
+    {% include 'orders/snippets/resume.html' with next_url=next_url %}
+
+</div>
+

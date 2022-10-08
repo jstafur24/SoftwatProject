@@ -3,6 +3,7 @@ from django.shortcuts import render
 from GestionProductos.models import Product
 from .utils import get_or_create_cart
 
+from .models import CartProducts
 
 def cart(request):
     cart = get_or_create_cart(request)
@@ -14,13 +15,16 @@ def cart(request):
 def add(request):
     cart = get_or_create_cart(request)
     product = Product.objects.get(pk=request.POST.get('product_id'))
-    quantity = request.POST.get('quantity', 1) 
+    quantity = int(request.POST.get('quantity', 1)) 
     
-    cart.products.add(product, through_defaults ={
-        'quantity' : quantity
-    } )
+    # cart.products.add(product, through_defaults ={
+    #     'quantity' : quantity
+    # } )
+    cart_product = CartProducts.objects.create_or_update_quantity(cart=cart, product=product, quantity=quantity)
 
     return render(request, 'carts/add.html', {
+        'quantity': quantity,
+        'cart_product': cart_product,
         'product': product
     })
 

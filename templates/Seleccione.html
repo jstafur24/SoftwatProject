@@ -11,14 +11,20 @@
         <h1>📦SELECCIONE EL SERVICIO </h1>
     </div>
 <div class="row mb-3">
-    <div class="col d-grid gap-2 d-sm-grid mb-5">
+    <!-- <div class="col d-grid gap-2 d-sm-grid mb-5">
         <a href="{% url 'actualizar' %}" class="btn btn-dark d-sm-block">📦ACTUALIZAR FECHA DE ENTREGA</a>
-    </div>
+    </div> -->
     <div class="col d-grid gap-2 d-sm-grid mb-5">
         <a href="{% url 'estado' %}" class="btn btn-dark d-sm-block">📦ESTADO DEL DOMICILIO</a>
 </div>
 <div>
     
+<!-- {% if user.is_authenticated %}
+    <div class="col d-grid gap-2 d-sm-grid mb-5">
+        <a href="{% url 'shipping_addresses:shipping_addresses'%}" class="btn btn-dark d-sm-block">Mis Direcciones 📍</a>
+</div>
+{% endif %} -->
+<!-- para que se muestre para personas que solo estan logeadas -->
 
 </div>
 

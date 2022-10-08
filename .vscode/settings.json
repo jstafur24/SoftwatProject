@@ -1,0 +1,4 @@
+{
+    "appService.defaultWebAppToDeploy": "/subscriptions/d53d7c51-c078-460e-b309-98c8d15f00d4/appservices/subscriptions/d53d7c51-c078-460e-b309-98c8d15f00d4/resourceGroups/appsvc_linux_centralus/providers/Microsoft.Web/sites/proyectoSoftwat",
+    "appService.deploySubpath": "."
+}

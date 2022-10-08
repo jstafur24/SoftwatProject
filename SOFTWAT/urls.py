@@ -27,20 +27,27 @@ from GestionProductos.views import ProductListView
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.paginaprincipal, name='index'),
-    path('clienteinicio/', views.ClienteInicio, name='iniciocliente'),
+    path('clienteinicio/', views.register, name='iniciocliente'),
     path('mision/', views.Mision, name='mision'),
     path('catpinturas/', ProductListView.as_view(), name='catpinturas'), #indicamos que vamos a usar la clase como una vista
     path('catrollos/', views.CatRollos, name='catrollos'),
     path('aplicacion/', views.Aplicacion, name='aplicacion'),
     path('domicilio/', views.Domicilio, name='domicilio'),
     path('login/', views.login_view, name='login'),
+    path('usuarios/logout/', views.logout_view, name='logout'),
     path('PQRS/', views.PQRS, name='PQRS'),
     path('carrito/', include('carts.urls')),
     path('Estado/',views.Estado, name='estado'),
     path('Actualizar/',views.Actualizar, name='actualizar'),
     path('productos/', include('GestionProductos.urls')),
+    path('orden/', include('orders.urls')),
+    path('direcciones/', include('shipping_addresses.urls')),
+
+
     #img
     path('admin/', admin.site.urls, name='admin'),
+
+
 ]
 
 #img

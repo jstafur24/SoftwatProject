@@ -10,13 +10,16 @@ from django.contrib.auth import authenticate
 from django.contrib import messages
 from GestionProductos.models import Product
 from django.contrib.auth.forms import UserCreationForm
-from django.contrib.auth.models import User
-from django.http import HttpResponse
+from django.contrib.auth.decorators import login_required
+
+from django.http import HttpResponseRedirect
 
 #para enviar emails y que las funciones sirvan en views
 from django.core.mail import EmailMessage
 from django.template.loader import render_to_string
 from django.conf import settings
+
+from SOFTWAT.forms import UserRegisterForm
 
 def paginaprincipal(request):
     return render(request,'PAGINA_PRINCIPAL.HTML',{
@@ -90,29 +93,16 @@ def login_view(request):
         if user:
             login(request, user)
             messages.success(request, 'Bienvenido {}'.format(user.username))
-            return redirect('admin:index')
+
+            if request.GET.get('next'):
+                return HttpResponseRedirect(request.GET['next'])
+
+            return redirect('index')
         else: 
-            messages.error(request, 'Usuario o contraseña incorrectos')
+           messages.error(request, 'Usuario o contraseña incorrectos')
     return render(request, 'login.html',{
 
     })
-
-# LOGIN
-def login_view(request):
-    if request.method == 'POST':
-        username = request.POST.get('username')
-        password = request.POST.get('password')
-        user = authenticate(username=username, password=password)
-        if user:
-            login(request, user)
-            messages.success(request, 'Bienvenido {}'.format(user.username))
-            return redirect('admin:index')
-        else: 
-            messages.error(request, 'Usuario o contraseña incorrectos')
-    return render(request, 'login.html',{
-
-    })
-
 
 
 def PQRS(request):
@@ -150,4 +140,31 @@ def PQRS(request):
 
     })
 
-    
+def register(request):
+    if request.method == 'POST':
+        username = request.POST.get('username')
+        email = request.POST.get('email')
+        password1 = request.POST.get('password1')
+        password2 = request.POST.get('password2')
+        form = UserRegisterForm(request.POST)
+        if form.is_valid():
+            form.save()
+            user = authenticate(username = form.cleaned_data['username'] , password = form.cleaned_data['password1'] )
+            login(request, user)
+            messages.success(request, f'¡{ username } registrado con exito!')
+            return redirect('index')
+        
+        else: 
+            messages.error(request, 'Usuario o contraseña incorrectos')
+        
+    else:
+        form= UserRegisterForm()
+        
+    context = {'form' : form} 
+    return render(request, 'cliente_inicio.html', context)
+
+#logout
+def logout_view(request):
+    logout(request)
+    messages.success(request, 'Sesion Cerrada')
+    return redirect('index')

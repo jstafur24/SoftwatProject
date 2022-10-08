@@ -26,10 +26,10 @@ SECRET_KEY = 'django-insecure-y9k^ycdfcuc!o570ezavjvp*5ylmg=^2*h2#q@6=t#0i^ivsvm
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
-CSRF_TRUSTED_ORIGINS = ["https://sofwat3.herokuapp.com"]
+ALLOWED_HOSTS = []
 
-
+#mensajes
+MESSAGE_STORAGE= "django.contrib.messages.storage.cookie.CookieStorage"
 
 # Application definition
 
@@ -46,7 +46,14 @@ INSTALLED_APPS = [
     'GestionProductos',
     #ventas
     'carts',
-    'GestionVentas',
+    #domicilios
+    'orders',
+    'shipping_addresses',
+    # pqrs
+    'PQRS',
+    #usuarios
+    'users',
+
     
 ]
 
@@ -64,6 +71,8 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'SOFTWAT.urls'
+
+AUTH_USER_MODEL = 'users.User'
 
 TEMPLATES = [
     {
@@ -127,10 +136,24 @@ USE_I18N = True
 USE_TZ = True
 
 
+
+# EMAIL_HOST = 'smtp.googlemail.com'
+# EMAIL_PORT = 587
+# EMAIL_HOST_USER = 'colorin441@gmail.com'
+# EMAIL_HOST_PASSWORD = config('USER_MAIL_PASSWORD')
+
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
+STATIC_URL = 'static/'
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, 'static'),
+)
 
+
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
@@ -150,21 +173,3 @@ EMAIL_USE_TLS = True # y se deja en true
 
 # https://myaccount.google.com/security 
 #para generar contraseñas
-
-STATIC_URL = 'static/'
-STATICFILES = (
-    os.path.join(BASE_DIR, 'static'),
-)
-
-
-
-MEDIA_URL = "media/"
-MEDIAFILES_DIRS = (
-    
-    os.path.join(BASE_DIR,"media/"),
-
-)
-
-STATIC_TMP = os.path.join(BASE_DIR,'static')
-STATIC_ROOT = os.path.join(BASE_DIR,'static')
-os.makedirs(STATIC_ROOT, exist_ok=True)

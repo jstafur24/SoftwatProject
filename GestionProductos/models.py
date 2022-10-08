@@ -35,7 +35,7 @@ class category(models.Model):
 class Product(models.Model):
     name = models.CharField(max_length=150, verbose_name='Nombre')
     description = models.TextField(verbose_name='Descripcion')
-    price = models.DecimalField(max_digits=10, decimal_places=3, default=0.0, verbose_name='Precio')
+    price = models.DecimalField(max_digits=10, decimal_places=3,default=0.0, verbose_name='Precio')
     image = models.ImageField(upload_to='media', null=False, blank=False)
     category = models.ManyToManyField(category)
     marca = models.ForeignKey(marca, on_delete=models.CASCADE)
@@ -55,7 +55,7 @@ def set_slug(sender, instance, *args, **kwargs):#callback
 
         while Product.objects.filter(slug=slug).exists():
             slug = slugify(
-                '{}-{}'.format(instance.name, str(uuid.uuid4())[:8] ) #el metodo uuid nos retorna in objeto
+                '{}-{}'.format(instance.name, str(uuid.uuid4())[:8] ) #el metodo uuid nos retorna un objeto
             )
 
         instance.slug = slug
