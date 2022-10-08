@@ -1,6 +1,4 @@
 import uuid
-from venv import create
-
 from django.db import models
 from django.utils.text import slugify
 from django.db.models.signals import pre_save

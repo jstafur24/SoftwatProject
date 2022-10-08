@@ -1,4 +1,3 @@
-import decimal
 import uuid
 from shipping_addresses.models import ShippingAddress
 from enum import Enum
