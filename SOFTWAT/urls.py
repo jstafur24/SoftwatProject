@@ -25,7 +25,7 @@ from GestionProductos.views import ProductListView
 
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path('admin/', admin.site.urls, name='admin'),
     path('', views.paginaprincipal, name='index'),
     path('clienteinicio/', views.register, name='iniciocliente'),
     path('mision/', views.Mision, name='mision'),
@@ -42,12 +42,6 @@ urlpatterns = [
     path('productos/', include('GestionProductos.urls')),
     path('orden/', include('orders.urls')),
     path('direcciones/', include('shipping_addresses.urls')),
-
-
-    #img
-    path('admin/', admin.site.urls, name='admin'),
-
-
 ]
 
 #img
