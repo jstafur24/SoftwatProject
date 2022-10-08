@@ -1,12 +1,7 @@
-from msilib.schema import ListView
-
-
 from django.shortcuts import render
 
 from django.shortcuts import redirect
 from shipping_addresses.models import ShippingAddress
-
-
 
 from .utils import destroy_order
 from django.contrib import messages
@@ -14,12 +9,10 @@ from .utils import get_or_create_order
 from carts.utils import get_or_create_cart #esta se encuentra en la carpeta utils de carts
 
 from carts.utils import destroy_cart
-from users.models import User
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import get_object_or_404
-from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic.list import ListView
-from django.db.models.query import EmptyQuerySet
+
  # Create your views here.
  
 class OrderListView(ListView):

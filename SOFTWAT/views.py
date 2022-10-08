@@ -1,7 +1,4 @@
 
-from http.client import HTTPResponse
-import re
-from urllib import request
 from django.shortcuts import render
 from django.shortcuts import redirect
 from django.contrib.auth import login
@@ -10,7 +7,6 @@ from django.contrib.auth import authenticate
 from django.contrib import messages
 from GestionProductos.models import Product
 from django.contrib.auth.forms import UserCreationForm
-from django.contrib.auth.decorators import login_required
 
 from django.http import HttpResponseRedirect
 
