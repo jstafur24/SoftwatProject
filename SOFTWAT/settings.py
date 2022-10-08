@@ -27,6 +27,7 @@ SECRET_KEY = 'django-insecure-y9k^ycdfcuc!o570ezavjvp*5ylmg=^2*h2#q@6=t#0i^ivsvm
 DEBUG = True
 
 ALLOWED_HOSTS = ['*']
+CSRF_TRUSTED_ORIGINS = ["https://softwatproject.herokuapp.com"]
 
 #mensajes
 MESSAGE_STORAGE= "django.contrib.messages.storage.cookie.CookieStorage"
