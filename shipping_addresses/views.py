@@ -1,4 +1,3 @@
-from pyexpat.errors import messages
 from django.shortcuts import render
 from django.views.generic import ListView
 from orders.utils import get_or_create_order

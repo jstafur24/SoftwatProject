@@ -1,6 +1,3 @@
-from tkinter.tix import Form
-
-
 from django.forms import ModelForm
 from .models import ShippingAddress
 
