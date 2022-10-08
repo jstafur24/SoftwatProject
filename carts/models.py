@@ -1,8 +1,6 @@
-from tkinter import CASCADE
 from unicodedata import decimal
 import uuid
 import decimal
-from tokenize import Triple
 from django.db import models
 from users.models import User
 from GestionProductos.models import Product
